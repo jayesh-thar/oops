@@ -382,6 +382,32 @@ Rules of overriding to remember:
   5. Always use @Override.
 
 
+---------------------------------------------------------------------
+# Extra points (common interview asks)
+
+static rules:
+- A static method can't use this or super (no current object exists).
+- A static method can't directly use non-static fields/methods.
+- main is static because the JVM calls it before any object exists.
+- A static block runs once, when the class is first loaded.
+
+final trap:
+- final reference: can't point to another object, but the object's contents can change.
+  final StringBuilder sb = new StringBuilder("Hi");
+  sb.append(" Jayesh");   // allowed
+  // sb = new StringBuilder();   // compile error
+
+this vs super:
+- this  = current object (also this(...) to call another constructor of the same class)
+- super = parent part (also super(...) to call the parent constructor)
+- Both must be the first line in a constructor, so you can't use both together.
+
+HAS-A (composition):
+- Inheritance = IS-A (Dog is an Animal). Composition = HAS-A (Car has an Engine).
+- Prefer composition over inheritance unless there is a true IS-A relationship.
+
+---------------------------------------------------------------------
+
 ==============================================================
 QUICK REVISION (ONE LINERS)
 ==============================================================
