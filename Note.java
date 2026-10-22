@@ -1,3 +1,15 @@
+// 4 Pillar | Core Concept of OOP:
+/*
+The four core pillars of **Object-Oriented Programming (OOP)**, as summarized at (4:50), are:
+
+1.  **Encapsulation (4:52):** Bundling data (variables) and methods (functions) into a single unit (object) to reduce complexity and protect the internal state from direct interference.
+2.  **Abstraction (4:58):** Hiding complex internal implementation details and exposing only the essential features to the user, making interaction simpler.
+3.  **Inheritance (5:02):** Reusing code by allowing a child class to derive properties and methods from a parent class, which eliminates redundancy and improves efficiency.
+4.  **Polymorphism (5:05):** Allowing a single function or method to operate in multiple forms, making the code more flexible, concise, and scalable for various object types.
+
+*/
+
+
 // # Inheritance: reuse one class to another other class with rewrite it's property again, another class may have extends it's properly.
 // - a child class acquires the fields and methods of a parent class using extends. It gives code reuse and an IS-A relationship.
 // - it inherit parent class to child class with there properties and behaviors 
