@@ -1,7 +1,8 @@
 // # Inheritance: reuse one class to another other class with rewrite it's property again, another class may have extends it's properly.
-//              - it inherit parent class to child class with there properties and behaviors 
+// - a child class acquires the fields and methods of a parent class using extends. It gives code reuse and an IS-A relationship.
+// - it inherit parent class to child class with there properties and behaviors 
 
-/*
+
 
         class Animal {
             void eat() {
@@ -14,7 +15,7 @@
             }
         }
 
-        public class Main {
+        public class Note {
             public static void main(String args[]) {
                 Cat c1 = new Cat();
                 c1.eat();
@@ -22,7 +23,7 @@
             }
         }
             
-*/
+
 
 /*
 ------------------------------------------------------------------------
@@ -77,7 +78,7 @@
     - add(5, 6) has (int, int) version then it pick up (int, int) method in class
     ```
 
-    2. Method overriding: Runtime | different method name but same parameter.
+    2. Method overriding: Runtime | same method name, same parameters,
     - When a child class provides its own implementation of a method already defined in its parent class.
     ```
     class Animal {
@@ -112,17 +113,17 @@
 
 ```
 ------------
-Packages Animal;
+package animal;
 
-class Cat {
-    void eating() {
-        System.out.println('Eating...');
+public class Cat {
+    public void eating() {
+        System.out.println("Eating...");
     }
 }
 
 ------------
 
-import Animal.Cat;
+import animal.Cat;
 public class Main {
     public static void main(String[] args) {
         Cat c = new Cat();
@@ -158,11 +159,11 @@ private	                Accessible only within the same class.
 -----------------------------------------------------------------------------------------------
 
 
-Modifier	            Same class	    Same package	   Subclass (other package)	    Everywhere
-private	                    ✅	            ❌	              ❌	                        ❌
-default (no keyword)	    ✅	            ✅	              ❌	                        ❌
-protected	                ✅	            ✅	              ✅through inheritance)	    ❌
-public	                    ✅	            ✅	              ✅	                        ✅
+Modifier	            Same class	    Same package	   Subclass (other package)	        Everywhere
+private	                    ✅	            ❌	              ❌	                            ❌
+default (no keyword)	    ✅	            ✅	              ❌	                            ❌
+protected	                ✅	            ✅	              ✅ (through inheritance)	    ❌
+public	                    ✅	            ✅	              ✅	                            ✅
 
 -----------------------------------------------------------------------------------------------
 
@@ -312,7 +313,7 @@ OUTPUT:
 
 Pillar:	        One-line definition:	            Java tool:
 Encapsulation	Hide data, control access	        private + methods
-Abstraction	    Show what, hide how	abstract        class, interface
+Abstraction	    Show what, hide how	                abstract class, interface
 Inheritance	    Reuse parent’s code (IS-A)	        extends
 Polymorphism	Same call, different behaviour	    overloading, overriding
 
@@ -320,16 +321,116 @@ Polymorphism	Same call, different behaviour	    overloading, overriding
 */
 
 
+// ----------------------------------------------------------------------------------------------------------
+
+// # static: variable belong to class itself rather then belong to individual object
+
+// ex:
+
+/*
+```
+class Student {
+        String name;
+        static String college = "Marwadi University";
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.name = "Jayesh";
+        // s.college = "RK University"; // allowed | then OUTPUT will not "Marwadi University" -> "Rk University"
+        System.out.println(s.name);
+        System.out.println(Student.college);
+    }
+}
+
+```
+OUTPUT:
+    Jayesh
+    Marwadi University
+
+- college is static, so it belongs to the Student class and is shared by all students.
+
+-> A static method can be called without creating an object.
+
+```
+    class Calculator {
+        static int add(int a, int b) {
+            return a + b;
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println(Calculator.add(5, 3));
+        }
+    }
+```
+OUTPUT: 8
+
+
+
+====================================================================
+Remember: static = belongs to the class, not to individual objects.
+====================================================================
+
+
+*/
+
+// -------------------------------------------------------------------------------------------------------
+
+// # final: can't be changed
+// - used to prevent something from being changed, overridden, or inherited, depending on where it is used.
+
+/*
+
+It has three uses:
+
+Used on:	    Effect:
+Variable	    Becomes a constant, assigned only once
+Method	        Can’t be overridden
+Class	        Can’t be extended
+
+
+
+ex:
+
+class Main {
+    public static void main(String[] args) {
+        final int age = 21;
+
+        System.out.println(age);
+
+        // age = 22;  // Compilation error
+    }
+}
+
+
+ex:
+
+class Animal {
+    final void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    // void sound() { }  // Compilation error
+}
+
+
+ex:
+
+final class Animal {
+}
+
+// class Dog extends Animal { }  // Compilation error
 
 
 
 
+- Can we override a final method? No.
+- Can a final variable be set later? Only if it’s a blank final, once, in the constructor.
 
-
-
-
-
-
-
-
+*/
 
